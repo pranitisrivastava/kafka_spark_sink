@@ -1,5 +1,7 @@
 package com.cv.polaris.mer.stream.utils;
 
+import oracle.jdbc.driver.Const;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Enumeration;
@@ -10,10 +12,9 @@ import java.util.Properties;
 public class PropertyHandler {
     
     static Properties prop = new Properties();
-    public PropertyHandler(String fPath)
+    public PropertyHandler()
     {
-        InputStream input = PropertyHandler.class.getClassLoader().getResourceAsStream("config.properties");
-        System.out.println(fPath);
+        InputStream input = PropertyHandler.class.getClassLoader().getResourceAsStream(Constants.CONFIG_PROPERTIES_FILENAME);
         if (input == null)
         {
             System.out.println("Property file is empty.");
@@ -25,7 +26,7 @@ public class PropertyHandler {
             e.printStackTrace();
         }
     }
-    public static String getPropValue(String p)
+    public String getPropValue(String p)
     {
         return prop.getProperty(p.toString());
     }

@@ -19,7 +19,7 @@ public class SparkStreamingKafkaRunner {
         System.setProperty("hadoop.home.dir", "C:\\Installations\\hadoop");
         SparkSession spark = SparkSession.builder().appName("SparkApp").config("spark.master", "local[4]").
                 config("spark.serializer", "org.apache.spark.serializer.KryoSerializer").getOrCreate();
-        PropertyHandler propertyHandler = new PropertyHandler(Constants.CONFIG_PROPERTIES_FILENAME);
+        PropertyHandler propertyHandler = new PropertyHandler();
         SchemaBuilder schemaBuilder = new SchemaBuilder();
         DataValidator dataValidator = new DataValidator();
         StructType schema = schemaBuilder.buildSchema();

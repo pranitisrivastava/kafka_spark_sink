@@ -2,6 +2,7 @@ package com.cv.polaris.mer.stream.sink;
 
 import com.cv.polaris.mer.stream.model.FunctionalException;
 import com.cv.polaris.mer.stream.utils.Constants;
+import com.cv.polaris.mer.stream.utils.DAOManager;
 import org.apache.spark.sql.ForeachWriter;
 import org.apache.spark.sql.Row;
 import java.io.Serializable;
@@ -19,27 +20,16 @@ public class JDBCSink extends ForeachWriter<FunctionalException> implements Seri
     PreparedStatement statementWithParams;
     @Override
     public boolean open(long partitionId, long version) {
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.132:1521/orcl"
-           ,"system","oracle");
-
-            logger.info("JDBC Connection " + connection);
+            connection = DAOManager.getOracleDBConnection();
             System.out.println("Connection  " + connection);
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("Connection not established " + connection);
-            System.exit(-1);
-        }
-        if(connection !=null)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
+            if(connection !=null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
     }
 
     @Override
