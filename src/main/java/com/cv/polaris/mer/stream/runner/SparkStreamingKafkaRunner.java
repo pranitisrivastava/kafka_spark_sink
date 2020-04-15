@@ -43,11 +43,13 @@ public class SparkStreamingKafkaRunner {
         System.out.println("schema of kafka message after applying explicit schema :");
         datasetFromKafka.printSchema();
         Dataset<FunctionalException> datasetPojo = datasetFromKafka.as(Encoders.bean(FunctionalException.class));
-     //   Dataset<FunctionalException> validDataset = datasetPojo.filter((FilterFunction<FunctionalException>) r -> dataValidator.isValidJson(r));
+       //commenting validation code
+        /*
+        Dataset<FunctionalException> validDataset = datasetPojo.filter((FilterFunction<FunctionalException>) r -> dataValidator.isValidJson(r));
         Encoder<FunctionalException> functionalExceptionEncoder = Encoders.bean(FunctionalException.class);
         InvalidJsonHandler invalidJsonHandler = new InvalidJsonHandler();
         Dataset<FunctionalException> exceptionDataset = datasetPojo.map((MapFunction<FunctionalException, FunctionalException>) value -> invalidJsonHandler.populateCorruptRecordField(value), functionalExceptionEncoder);
-
+        */
         //kafka sink for testing purpose
 /*
         StreamingQuery query = ds2.writeStream().format("kafka")
@@ -58,7 +60,7 @@ public class SparkStreamingKafkaRunner {
 
 */
         ForeachWriter jdbcWriter = new JDBCSink();
-        StreamingQuery query = exceptionDataset.writeStream()
+        StreamingQuery query = datasetPojo.writeStream()
                 .foreach(jdbcWriter)
                 .option("checkpointLocation", "/user/root/chk")
                 .outputMode(OutputMode.Update())
