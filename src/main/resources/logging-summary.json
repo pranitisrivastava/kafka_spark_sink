@@ -1,0 +1,30 @@
+{ "loggingSummary":
+{
+  "columnDetails":[
+    {
+      "columnName":"summ_rpt_key",
+      "columnDatatype":"bigint"
+    },
+    {
+      "columnName": "tenant_party_code",
+      "columnDatatype":"string"
+    },
+    {
+      "columnName": "client_app_name",
+      "columnDatatype":"string"
+    },
+    {
+      "columnName": "client_name",
+      "columnDatatype": "string"
+    },
+    {
+      "columnName": "business_category",
+      "columnDatatype":"string"
+    },
+    {
+      "columnName": "business_subcategory",
+      "columnDatatype":"string"
+    }
+  ]
+}
+}

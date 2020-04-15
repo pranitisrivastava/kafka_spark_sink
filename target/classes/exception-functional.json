@@ -1,0 +1,153 @@
+{ "exceptionFunctional":
+{
+  "columnDetails":[
+    {
+      "columnName": "corrupt_record",
+      "columnDatatype":"string"
+    },
+    {
+      "columnName": "job_id",
+      "columnDatatype":"string",
+      "nullable":"false",
+      "length":"15"
+    },
+    {
+      "columnName": "job_sequence",
+      "columnDatatype":"number",
+      "nullable":"false",
+      "length":"5"
+    }, {
+      "columnName": "job_scheduler",
+      "columnDatatype": "string",
+      "nullable":"true",
+      "length":"15"
+    },
+    {
+      "columnName": "exception_id",
+      "columnDatatype":"string",
+      "nullable":"false",
+      "length":"30"
+    },
+    {
+      "columnName": "tenant",
+      "columnDatatype": "string",
+      "nullable":"false",
+      "length":"10"
+    },
+    {
+      "columnName": "business_category",
+      "columnDatatype":"string",
+      "nullable":"true",
+      "length":"10"
+    },
+    {
+      "columnName": "business_subcategory",
+      "columnDatatype": "string",
+      "nullable":"true",
+      "length":"10"
+    },
+    {
+      "columnName": "client_name",
+      "columnDatatype":"string",
+      "nullable":"false",
+      "length":"20"
+    },
+    {
+      "columnName": "origin",
+      "columnDatatype":"string",
+      "nullable":"false",
+      "length":"20"
+    },
+    {
+      "columnName": "component",
+      "columnDatatype":"string",
+      "nullable":"false",
+      "length":"15"
+    },
+    {
+      "columnName": "sub_component",
+      "columnDatatype":"string",
+      "nullable":"false",
+      "length":"15"
+    },
+    {
+      "columnName": "exception_type",
+      "columnDatatype":"string",
+      "nullable":"false",
+      "length":"20"
+    },
+    {
+      "columnName": "exception_subtype",
+      "columnDatatype":"string",
+      "nullable":"false",
+      "length":"20"
+    },
+    {
+      "columnName": "status",
+      "columnDatatype":"string",
+      "nullable":"false",
+      "length":"20"
+    },
+    {
+      "columnName": "severity",
+      "columnDatatype":"string",
+      "nullable":"false",
+      "length":"15"
+    },
+    {
+      "columnName": "owned_by",
+      "columnDatatype":"string",
+      "nullable":"false",
+      "length":"15"
+    },
+    {
+      "columnName": "exception_message",
+      "columnDatatype":"string",
+      "nullable":"false",
+      "length":"250"
+    },
+    {
+      "columnName": "exception_message_detail",
+      "columnDatatype":"string",
+      "nullable":"true",
+      "length":"4096"
+    },
+    {
+      "columnName": "exception_data",
+      "columnDatatype":"string",
+      "nullable":"true",
+      "length":"3200"
+    },
+    {
+      "columnName": "retry_count",
+      "columnDatatype":"number",
+      "nullable":"true",
+      "length":"5"
+    },
+    {
+      "columnName": "exception_created_time",
+      "columnDatatype": "string",
+      "nullable":"true",
+      "length":"30"
+    },
+    {
+      "columnName": "remediation_status",
+      "columnDatatype":"string",
+      "nullable":"true",
+      "length":"15"
+    },
+    {
+      "columnName": "resolved_by",
+      "columnDatatype":"string",
+      "nullable":"true",
+      "length":"15"
+    },
+    {
+      "columnName": "resolved_time",
+      "columnDatatype":"string",
+      "nullable":"true",
+      "length":"30"
+    }
+  ]
+}
+}

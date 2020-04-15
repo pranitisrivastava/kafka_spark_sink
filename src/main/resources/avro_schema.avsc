@@ -1,9 +1,0 @@
-{
-   "type" : "record",
-   "namespace" : "com.nrt.polaris",
-   "name" : "avro_schema",
-   "fields" : [
-      { "name" : "id" , "type" : ["null","string"] , "java-class": "java.math.BigDecimal", "logicalType": "decimal", "precision": 21 },
-      { "name" : "payee_email" , "type" : "string", "default": "" }
-   ]
-}

@@ -4,152 +4,55 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.nrt.test</groupId>
-    <artifactId>payment_event</artifactId>
-    <version>2.0-SNAPSHOT</version>
-
-
-    <dependencies>
-
+    <groupId>org.example</groupId>
+    <artifactId>SparkStreamingKafka</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+<dependencies>
     <dependency>
-        <groupId>org.apache.kafka</groupId>
-        <artifactId>kafka-clients</artifactId>
-        <version>2.1.0</version>
-    </dependency>
-
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>1.7.25</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.avro</groupId>
-        <artifactId>avro</artifactId>
-        <version>1.9.1</version>
-    </dependency>
-
-
-    <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
-        <scope>test</scope>
     </dependency>
-    <!-- Import Spark -->
-    <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-sql_2.11</artifactId>
-        <version>2.3.2</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/com.databricks/spark-avro -->
-    <dependency>
-        <groupId>com.databricks</groupId>
-        <artifactId>spark-avro_2.11</artifactId>
-        <version>4.0.0</version>
-    </dependency>
-
-
-    <dependency>
-    <groupId>org.apache.spark</groupId>
-    <artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
-    <version>2.3.2</version>
-    </dependency>
-
-    <dependency>
-    <groupId>org.apache.spark</groupId>
-    <artifactId>spark-sql-kafka-0-10_2.11</artifactId>
-    <version>2.3.2</version>
-    <exclusions>
-        <exclusion>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka-clients</artifactId>
-        </exclusion>
-    </exclusions>
-
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
-
     <dependency>
         <groupId>org.apache.spark</groupId>
         <artifactId>spark-core_2.11</artifactId>
-        <version>2.3.2</version>
+        <version>2.4.5</version>
+    </dependency>
+    <dependency> <!-- Spark dependency -->
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-sql_2.11</artifactId>
+        <version>2.4.5</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming -->
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-streaming_2.11</artifactId>
+        <version>2.4.5</version>
     </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.hbase/hbase-client -->
-        <dependency>
-            <groupId>org.apache.hbase</groupId>
-            <artifactId>hbase-client</artifactId>
-            <version>2.0.2</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.hbase/hbase-common -->
-        <dependency>
-            <groupId>org.apache.hbase</groupId>
-            <artifactId>hbase-common</artifactId>
-            <version>2.0.2</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.hortonworks.hive/hive-warehouse-connector -->
-
-        <dependency>
-            <groupId>com.hortonworks.hive</groupId>
-            <artifactId>hive-warehouse-connector_2.11</artifactId>
-            <version>1.0.0.3.1.0.0-78</version>
-        </dependency>
-
-        <!--<dependency>-->
-            <!--<groupId>org.apache.hive</groupId>-->
-            <!--<artifactId>hive-streaming</artifactId>-->
-            <!--<version>3.1.0</version>-->
-        <!--</dependency>-->
+    <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka-0-10 -->
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
+        <version>2.4.5</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql-kafka-0-10 -->
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-sql-kafka-0-10_2.11</artifactId>
+        <version>2.4.5</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jdk8 -->
+    <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-jdk8</artifactId>
+        <version>2.10.3</version>
+    </dependency>
 
 
-
-    </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-
-            <!-- Maven Assembly Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.4.1</version>
-                <configuration>
-                    <!-- get all project dependencies -->
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <!-- MainClass in mainfest make a executable jar -->
-                    <archive>
-                        <manifest>
-                            <mainClass>com.nrt.test.Payment_Event</mainClass>
-                        </manifest>
-                    </archive>
-
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <!-- bind to the packaging phase -->
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
-
-
+</dependencies>
 </project>
